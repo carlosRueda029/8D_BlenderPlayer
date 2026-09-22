@@ -1,4 +1,22 @@
-# TFG-CRM
+# 🎵 8D BlenderPlayer
+
+![Blender](https://img.shields.io/badge/Blender_LTS_3.6.26-F5792A?style=for-the-badge&logo=blender&logoColor=white)
+![Python](https://img.shields.io/badge/Python_3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+![Demucs](https://img.shields.io/badge/Demucs_mdx__extra__q-4B0082?style=for-the-badge)
+![MIT KEMAR](https://img.shields.io/badge/MIT_KEMAR_HRTF_database-A31F34?style=for-the-badge)
+
+
+Hi there! **8D_BlenderPlayer** is my final BSc thesis project. It's a Blender add-on that generates, customizes, plays and exports your stero into spatial music. It blends an intuitive UI with AI stem separation and DSP to pass from an _.mp4_ &rarr; _.mp4_ with your own choosen spatial properties. It's build up entirely on Python using JSON only to parse key information.
+
+---
+
+## 🏗️ Project Architecture
+The project follows a microkernel architecture that separates blender _bpy_ operators and UI from the attached plugins _demucs_ and _procesador8d_ which do the two most demanding processes, separate an stereo audio into it's main components and the spatializer DSP engine.
+
+---
+
+
 Repositorio personal del trabajo de fin de grado de Ingeniería Multimedia de Carlos Rueda Martínez.
 
 # INSTALACIÓN DEL ADDON!!
