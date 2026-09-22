@@ -1,0 +1,79 @@
+# ==========================================
+# 1. PYTHON Y ENTORNOS VIRTUALES
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ==========================================
+# 2. BLENDER
+# ==========================================
+# Archivos de autoguardado y copias de seguridad de Blender
+*.blend1
+*.blend2
+*.crash.txt
+
+# ==========================================
+# 3. AUDIO, IA Y DATOS PESADOS (Demucs)
+# ==========================================
+# Evita subir archivos de audio grandes al repositorio
+*.wav
+*.mp3
+*.flac
+*.ogg
+!audio_8d/plugins/procesador8d/diffuse/
+!audio_8d/plugins/procesador8d/diffuse/**/*.wav
+
+# Evita subir los modelos pre-entrenados de PyTorch/Demucs
+*.pt
+*.pth
+
+# Ignora el contenido de las carpetas de datos, pero mantén su estructura
+data/audio_input/*
+data/stems_output/*
+data/models/*
+!data/audio_input/.gitkeep
+!data/stems_output/.gitkeep
+!data/models/.gitkeep
+
+# ==========================================
+# 4. LATEX (Memoria TFG)
+# ==========================================
+# Archivos temporales generados al compilar tu MemoriaTFG.tex
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.cb
+*.cb2
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.pdfsync
+
+# Descomenta la siguiente línea si NO quieres versionar los PDFs generados
+# *.pdf
+
+# ==========================================
+# 5. IDEs Y SISTEMA OPERATIVO
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+__MACOSX
+Thumbs.db
