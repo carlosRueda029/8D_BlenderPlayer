@@ -7,7 +7,7 @@
 ![MIT KEMAR](https://img.shields.io/badge/MIT_KEMAR_HRTF_database-A31F34?style=for-the-badge)
 
 
-Hi there! **8D_BlenderPlayer** is my final BSc thesis project. It's a Blender add-on that generates, customizes, plays and exports your stero into spatial music. It blends an intuitive UI with AI stem separation and DSP to pass from an _.mp4_ &rarr; _.mp4_ with your own choosen spatial properties. It's build up entirely on Python using JSON only to parse key information.
+Hi there! **8D_BlenderPlayer** is my final BSc thesis project. It's a Blender add-on that generates, customizes, plays and exports your stero into spatial music. It blends an intuitive UI with AI stem separation and DSP engine to pass from an _.wav_ &rarr; _spatialized .wav_. It's build up entirely on Python, JSON to parse information and a HRTF (_Head-Releated Transfer Function_) database to convolve the audio.
 
 ---
 
@@ -16,48 +16,46 @@ The project follows a microkernel architecture that separates blender _bpy_ oper
 
 ---
 
+## What 8D BlenderPlayer solves?
+The project main objective is to zoom closer this technologies and new type of inmersive music to the general public/engineer/artist. It's capabilities has been made up to be understandable to anyone who interacts with it prioritizing the use of open-source tools. The architecture and reason of design is built up to make it easier to install and try new DSP and AI modules that can solve, integrate and speed up the whole process. The UI is made up to weigh less the cognitive fatigue of the user so it can focus on designing the designated spatial audio and learn how properties interact between each other. The models of AI choosen are basic, this means anyone with relative low charge CPU can interact with it, breaking barriers for those with low computer specs. Finally, the add-on remembers the full stereo songs spatialized or simply AI stem separated so it can skip an already done process.
 
-Repositorio personal del trabajo de fin de grado de Ingeniería Multimedia de Carlos Rueda Martínez.
+---
 
-# INSTALACIÓN DEL ADDON!!
-- 1. Clona el repositorio donde quieras
-- 2. Dentro de TFG-CRM verás un archivo "audio_8d.zip", este es el módulo a instalar.
-- 3. Después de cargar el .zip en el apartado de preferencias verás que no tiene las dependencias instaladas. Pulsa en el botón y espera (Blender se va a quedar congelado cargando las librerías, abre la consola para ver cómo va la instalación antes de pulsar al botón)
-- 4. Reinicia blender después de la instalación y el addon debería de estar incrustado en el panel derecho.
+## 🎥 Visual example
+Here is a visual example of an already separated stero song being modified, spatialized and saved:
 
-# CONSIDERACIONES!
-- 1. Debido a que el addon genera archivos auxiliares, recomiendo que guardes el proyecto en una carpeta aparte y que dentro de ella metas los archivos .wav con los que quieras trabajar junto con el .blend (que también debes guardar en esa carpeta), el resto lo realiza el plugin!
-- 2. El módulo de separación de pistas suele tardar un rato dependiendo de la longitud de la pista, prueba con una pista que dure un 1 - 1:30 min aproximadamente.
-- 3. Cuando finalice el primer proceso habrá una esfera representando la cabeza y una nariz para orientar hacia donde quieres situar las pistas (selecciona el icono del Viewport Shading arriba a la derecha para ver los colores de las pistas y tener una referencia visual).
-- 4. Pese a que no está hecho el módulo de exportación (que no es nada apenas), después de modificar las propiedades y renderizar la canción esta se guarda en el secuenciador de vídeo con lo que al pulsar play puedes ver como las esferas rotan conforme a la trayectoria coincidiendo con la pista binaural.
-- 5. Es posible mezclar trayectorias estáticas y dinámicas.
-- 6. Para notar el resultado es indispensable que uses auriculares.
-- 7. Recomiendo bastante que la propiedad de resolución espacial en las pistas dinámicas lo subas al máximo para que interpole bien, si lo bajas se escucharán clicks en la canción final.
+---
+## ⚙️ Functional deployment
 
-# Requisitos para la instalación:
-- Blender LTS 3.6.26 o menor.
-- Python 3.10
+### Install prerequisites
+* **Blender LTS 3.6.26** or lower version
+* **Python 3.10**
+* **.ZIP of the _audio_8d_ folder** (included on the repository!) 
 
-## Teoría e ideas:
-- Bases de datos con HRTF (Head-Releated Transfer Functions) para generar presets de escucha guardables
-- Generar perfiles de escucha en base a datos de tablas
-- Se entiende que solo se podrían utilizar auriculares puesto que los altavoces no generan espacialidad
-- Interés en Sofa puesto que audio3d y pyBinSim las utilizan.
-- Formateo en JSON para los presets.
+---
 
-## Ejemplos de tecnologías:
-- Mutagen python: modificar metadatos de la información
-- Demucs/Spleeter: tecnología de IA para separar pistas
-- Audio3d: librería de procesamiento de señal a través de una sala virtual (convoluciones)
-- pyBinSim: síntesis binaural dinámica con la aplicación de tablas HRTF
-- KEMAR y SofaConventions.org como bases de datos con tablas HRTF.  
+### Step-by-Step Installation
+1. Clone the full repository.
+
+2. Inside the repository there's an  `audio_8d.zip` already compressed, if not sure, zip the uncompressed folder yourself. 
+
+3. Open Blender and select **Edit &rarr; Preferences &rarr; Add-on** and load the `audio_8d.zip`.
+
+4. If it's your first time installing it &rarr; reboot Blender, reopen the add-on manager and install the preferences on the button it appears. Screen will freeze since it's installing everything, it takes a little time.
+
+5. If everything correctly a labeled "Audio 8D" will be available on the sidebar of the 3D View.
+
+## Add-on usage considerations
+- Since it generates aux files, all the `.blend` an `.wav` that might be used are recommended to be stored on a dedicated folder.
+- The initial AI stem separator is for low computer resources, modify it if in possesion of a dedicated GPU card or use another that fit your specs.
+- After the first stem separation, a low poly representation of the head and different spheres representing each instrument will apear. The UI code parameters mirror them, (_select Viewport Shading to see them_) use it to navigate and understand where and when u wanna spatialize the different stems of the track.
+- Static and dynamic trayectories can be mixed.
+- Headphones are mandatory, the add-on isn't prepared for speakers response.
+- All of the possible spatial properties are definied by the user, but I recommend tweaking at it's maximum the `Resolución espacial` parameter to hear and sense changes clearly.
+
+---
+
+## 📓 BSc Thesis in deep documentation 
+As the project was my BSc, it's fully deep reasoning of objectives, design, implementation and tests can be reviewed along other considerations can be viewed in the `Resolución espacial.pdf`.
 
 
-## Métricas y obtención de datos (presets?):
-- SAM (Spatial Audio Metrics): recursos de código abierto para facilitar el análisis de datos dentro del dominio del audio espacial.
-- ITD (Interaural Time Difference): diferencia de tiempo que tarda en viajar un sonido de un oído a otro
-- ILD (Interaural Level Difference): diferencia de intensidad del sonido entre los oídos.
-- Centroide Espectral: medida utilizada en el procesamiento digital de señales de audio para caracterizar el espectro de un sonido. Indica donde se encuentra el centro de masa del espectro.
-
-## Documentación:
-Comparación entre Demucs y Spleeter: https://beatstorapon.com/blog/demucs-vs-spleeter-the-ultimate-guide/
