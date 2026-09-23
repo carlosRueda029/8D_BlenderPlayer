@@ -14,6 +14,17 @@ Hi there! **8D_BlenderPlayer** is my final BSc thesis project. It's a Blender ad
 ## 🏗️ Project Architecture
 The project follows a microkernel architecture that separates blender _bpy_ operators and UI from the attached plugins _demucs_ and _procesador8d_ which do the two most demanding processes, separate an stereo audio into it's main components and the spatializer DSP engine.
 
+This specific architecture was chosen due to its **isomorphism**, as it naturally mirrors Blender's own add-on topology for a flawless integration with the 3D engine. To keep the codebase modular, clean, and scalable, the project strictly follows the **Model-View-Controller (MVC)** pattern, structured into the following key components:
+
+| Layer / Component | Directory | Role & Description |
+| :--- | :--- | :--- |
+| **View** | `ui/` | Acts as the presentation layer. It handles drawing the graphical panels and interface directly inside Blender's 3D viewport, operating entirely independent of the underlying logic or plugins. |
+| **Controller** | `operators/` | Serves as the system's bridge. It captures user interactions through Blender operators and links interface properties with core operations, supported by an auxiliary `utils/` directory. |
+| **Model & Microkernel** | `core/` | Functions as the central orchestrator. It manages the internal data model, handles system logic, and delegates specific responsibilities to the attached plugins by providing them with the exact data they need. |
+| **Modules** | `plugins/` | Totally isolated from the rest of the system to handle the most computationally demanding tasks. This layer is exclusively responsible for running the AI track separation and the mathematical DSP spatial sound processing. |
+
+This highly modular approach isolates processes to prevent heavy background calculations from freezing the main application. Furthermore, it makes the architecture incredibly flexible, allowing other developers to easily install, test, and integrate new AI or DSP modules in the future.
+
 ---
 
 ## What 8D BlenderPlayer solves?
