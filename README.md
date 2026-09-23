@@ -56,6 +56,7 @@ Here is a visual example of an already separated stero song being modified, spat
 ---
 
 ## 📓 BSc Thesis in deep documentation 
-As the project was my BSc, it's fully deep reasoning of objectives, design, implementation and tests can be reviewed along other considerations can be viewed in the `Resolución espacial.pdf`.
+As the project was my BSc, it's fully deep reasoning of objectives, design, implementation, tests and more can be reviewed along other considerations can be read in the document [BSc Thesis - 8D_BlenderPlayer](BSc%20Thesis%20-%208D_BlenderPlayer.pdf) done for ETSE (_Escola Tècnica Superior d'Enginyeria_) in
+UV (_Universitat de Valencia_).
 
 
