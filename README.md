@@ -35,7 +35,11 @@ The project main objective is to zoom closer this technologies and new type of i
 ## 🎥 Visual example
 Here is a visual example of an already separated stero song being modified, spatialized and saved locally:
 
-https://github.com/user-attachments/assets/5c5dac8b-cace-4adc-b299-ccbe782a374
+
+
+https://github.com/user-attachments/assets/083ea524-738d-4669-b9cd-abda3da5ca87
+
+
 
 ---
 ## ⚙️ Functional deployment
